@@ -1,0 +1,12 @@
+{
+    "id": "1",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "123-456-7890",
+    "joinDate": "2023-01-15T00:00:00.000Z",
+    "membershipType": "Premium",
+    "membershipStatus": "Active",
+    "emergencyContact": "Jane Doe",
+    "isActive": true
+  }

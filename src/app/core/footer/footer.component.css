@@ -1,0 +1,35 @@
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 10; /* Ensure it's above other content */
+  }
+  
+  .spacer {
+    flex: 1 1 auto; /* Push icons to the right */
+  }
+  
+  mat-toolbar {
+    background-color: #333;
+    color: white;
+  }
+  
+  mat-icon-button {
+    color: white;
+  }
+  
+  mat-icon {
+    font-size: 24px;
+  }
+  

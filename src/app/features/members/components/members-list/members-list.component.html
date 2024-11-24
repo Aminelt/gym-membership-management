@@ -1,0 +1,81 @@
+<div class="member-list-container">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <mat-form-field appearance="fill">
+        <mat-label>Search Members</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search by name or email">
+      </mat-form-field>
+    </div>
+  
+    <!-- Table -->
+    <table mat-table [dataSource]="membersDataSource" matSort>
+      <!-- Column Definitions -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let member"> {{ member.id }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+        <td mat-cell *matCellDef="let member"> {{ member.firstName }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+        <td mat-cell *matCellDef="let member"> {{ member.lastName }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let member"> {{ member.email }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+        <td mat-cell *matCellDef="let member"> {{ member.phone }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="joinDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Join Date </th>
+        <td mat-cell *matCellDef="let member"> {{ member.joinDate | date }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="membershipType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Membership Type </th>
+        <td mat-cell *matCellDef="let member"> {{ member.membershipType }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="membershipStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Membership Status </th>
+        <td mat-cell *matCellDef="let member"> {{ member.membershipStatus }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="emergencyContact">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Emergency Contact </th>
+        <td mat-cell *matCellDef="let member"> {{ member.emergencyContact }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Active Status </th>
+        <td mat-cell *matCellDef="let member"> {{ member.isActive ? 'Active' : 'Inactive' }} </td>
+      </ng-container>
+  
+      <!-- Table Footer for Actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let member">
+          <button mat-button (click)="viewMember(member.id)">View</button>
+          <button mat-button (click)="editMember(member.id)">Edit</button>
+        </td>
+      </ng-container>
+  
+      <!-- Table Header and Footer -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <!-- Pagination Controls -->
+    <mat-paginator [length]="totalMembers" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+   
